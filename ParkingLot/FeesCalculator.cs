@@ -12,16 +12,12 @@ public class FeesCalculator
     public DateTime EnteredTime { get; set; }
     public DateTime LeftTime { get; set; }
 
-    public FeesCalculator()
-    {
-        
-    }
 
     public void Initialize()
     {
-        int enteranceFee = 0;
-        int firstHourFee = 0;
-        int subsiquentHourFee = 0;
+        int enteranceFee = -1;
+        int firstHourFee = -1;
+        int subsiquentHourFee = -1;
 
         if (int.TryParse(ConfigurationManager.AppSettings["EnteranceFee"], out enteranceFee))
         {

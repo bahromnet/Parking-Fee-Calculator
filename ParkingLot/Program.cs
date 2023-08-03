@@ -6,6 +6,6 @@ internal class Program
     {
         FeesCalculator feesCalculator = new FeesCalculator();
         feesCalculator.Initialize();
-        Console.WriteLine(feesCalculator.GetParkingFee($"{DateTime.Now.AddMinutes(-85).ToString("HH:mm")}", $"{DateTime.Now.ToString("HH:mm")}"));
+        Console.WriteLine(feesCalculator.GetParkingFee("09:01", "10:00"));
     }
 }
