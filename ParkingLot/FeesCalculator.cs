@@ -4,16 +4,16 @@ using System.Globalization;
 namespace ParkingLot;
 public class FeesCalculator
 {
-    public int EnteranceFee { get; set; }
-    public int FirstHourFee { get; set; }
-    public int SubsiquentHourFee { get; set; }
-    public string TimeFormat { get; set; }
+    public int EnteranceFee { get; set; } = 2;
+    public int FirstHourFee { get; set; } = 3;
+    public int SubsiquentHourFee { get; set; } = 4;
+    public string TimeFormat { get; set; } = "HH:mm";
 
     public DateTime EnteredTime { get; set; }
     public DateTime LeftTime { get; set; }
 
 
-    public void Initialize()
+    public void Initialize(Configuration configuration)
     {
         int enteranceFee = -1;
         int firstHourFee = -1;
@@ -34,7 +34,7 @@ public class FeesCalculator
             SubsiquentHourFee = subsiquentHourFee;
         }
 
-        TimeFormat = ConfigurationManager.AppSettings["TimeFormat"]!;
+        TimeFormat = configuration.AppSettings.Settings["TimeFormat"].Value;
     }
 
     public int GetParkingFee(string timeEntered, string timeLeft)
